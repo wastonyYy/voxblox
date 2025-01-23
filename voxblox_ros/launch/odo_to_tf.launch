@@ -1,0 +1,10 @@
+<launch>
+       <!-- Rosbag播放 -->
+    <node name="rosbag_play" pkg="rosbag" type="play" args="/root/dataset/euroc_record_2025-01-22-08-34-05.bag" output="screen"/>
+    <node name="odom_to_transform" pkg="voxblox_ros" type="my_py.py" output="screen"/>
+
+    <!-- Rosbag记录 -->
+    <node name="rosbag_record" pkg="rosbag" type="record" args="record -o $(env HOME)/euroc_record /cam0/image_raw /cam1/image_raw /imu0 /leica/position /loop_fusion/base_path /loop_fusion/odometry_rect /vins_estimator/camera_pose /vins_estimator/extrinsic /vins_estimator/imu_propagate /vicon/firefly_sbx/firefly_sbx" output="log"/>
+    <!-- RViz可视化 -->
+    <!-- <node name="rvizvisualisation" pkg="rviz" type="rviz" output="log" args="-d $(find vins)/../config/vins_rviz_config.rviz"/> -->
+</launch>

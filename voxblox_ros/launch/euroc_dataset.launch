@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-15"?>
 <launch>
   <arg name="play_bag" default="true" />
-  <arg name="bag_file" default="/path/to/V1_01_easy.bag"/>
+  <!-- <arg name="bag_file" default="/root/dataset/EUROC/V1_01_easy.bag"/> -->
+  <arg name="bag_file" default="/root/dataset/euroc_record_2025-01-22-09-41-10.bag"/>
   <arg name="voxel_size" default="0.10"/>
   <arg name="process_every_nth_frame" default="5" />
   <arg name="scale" default="0.5" />
@@ -27,7 +28,7 @@
     <remap from="raw/second/camera_info" to="cam1/camera_info"/>
   </node>
 
-  <node name="voxblox_node" pkg="voxblox_ros" type="esdf_server" output="screen" args="-alsologtostderr" clear_params="true">
+  <node name="voxblox_node" pkg="voxblox_ros" type="tsdf_server" output="screen" args="-alsologtostderr" clear_params="true">
     <remap from="pointcloud" to="dense_stereo/pointcloud"/>
     <remap from="freespace_pointcloud" to="dense_stereo/freespace_pointcloud"/>
     <param name="use_freespace_pointcloud" value="true" />
@@ -37,7 +38,7 @@
     <param name="color_mode" value="colors" />
     <param name="use_tf_transforms" value="false" />
     <param name="verbose" value="true" />
-    <remap from="transform" to="vicon/firefly_sbx/firefly_sbx" />
+    <remap from="transform" to="/vicon/firefly_sbx/firefly_sbx" />
     <param name="update_mesh_every_n_sec" value="1.0" />
     <param name="slice_level" value="1.0" />
     <param name="method" value="fast" />
