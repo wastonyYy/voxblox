@@ -117,7 +117,7 @@ bool Transformer::lookupTransformTf(const std::string& from_frame,
   tf::transformTFToKindr(tf_transform, transform);
   return true;
 }
-
+//!
 bool Transformer::lookupTransformQueue(const ros::Time& timestamp,
                                        Transformation* transform) {
   CHECK_NOTNULL(transform);
@@ -151,7 +151,8 @@ bool Transformer::lookupTransformQueue(const ros::Time& timestamp,
   Transformation T_G_D;
   if (match_found) {
     tf::transformMsgToKindr(it->transform, &T_G_D);
-  } else {
+  } 
+  else {
     // If we think we have an inexact match, have to check that we're still
     // within bounds and interpolate.
     if (it == transform_queue_.begin() || it == transform_queue_.end()) {

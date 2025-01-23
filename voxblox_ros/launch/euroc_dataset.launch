@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-15"?>
 <launch>
   <arg name="play_bag" default="true" />
-  <arg name="bag_file" default="/path/to/V1_01_easy.bag"/>
+  <arg name="bag_file" default="/root/dataset/EUROC/V1_01_easy.bag"/>
+  <!-- <arg name="bag_file" default="/root/euroc_record_2025-01-23-08-54-03.bag"/> -->
   <arg name="voxel_size" default="0.10"/>
   <arg name="process_every_nth_frame" default="5" />
   <arg name="scale" default="0.5" />
@@ -14,8 +15,8 @@
     <param name="input_camera_info_from_ros_params" value = "true"/>
     <param name="first_camera_namespace" value="cam0"/>
     <param name="second_camera_namespace" value="cam1"/>
-    <param name="first_output_frame" value="cam0"/>
-    <param name="second_output_frame" value="cam1"/>
+    <param name="first_output_frame" value="cam_0"/>
+    <param name="second_output_frame" value="cam_1"/>
     <param name="scale" value="$(arg scale)"/>
     <param name="process_every_nth_frame" value="$(arg process_every_nth_frame)"/>
 
